@@ -1,0 +1,379 @@
+Key: IDNCASE
+Table: A_tblCase
+
+
+Key: IDNCASEID
+Table: A_tblCaseIdentifier
+
+
+Key: IDNPRCDCHG
+Table: b_tblProceedCharges
+
+
+Key: IDNPROCEEDING
+Table: b_tblProceeding
+
+
+Key: IDNASSOCBOND
+Table: d_tblAssociatedBond
+
+
+Key: idnCasePriHistory
+Table: tbl_CasePriorityHistory
+
+
+Key: idnCasePriHistory
+Table: tblLookup_CasePriority
+
+
+Key: IDNPROCEEDINGAPPLN
+Table: tbl_Court_Appln
+
+
+Key: IDNMOTION
+Table: tbl_Court_Motions
+
+
+Key: IDNCUSTODY
+Table: tbl_CustodyHistory
+
+
+Key: EOIRAttorneyID
+Table: tbl_EOIR_Attorney
+
+
+Key: idnJuvenileHistory
+Table: tbl_JuvenileHistory
+
+
+Key: idnLeadRider
+Table: tbl_Lead_Rider
+
+
+Key: IDNREPSASSIGNED
+Table: tbl_RepsAssigned
+
+
+Key: IDNSCHEDULE
+Table: tbl_schedule
+
+
+Key: IDNACTION
+Table: tbl_Action
+
+
+Key: idnAppeal
+Table: tbl_Appeal
+
+
+Key: idnAppealFedCourts
+Table: tbl_AppealFedCourts
+
+
+Key: No key?
+Table: tbl_ProBono
+
+Key: idn3MemberReferral
+Table: tbl_ThreeMbrReferrals
+
+
+Key: DeductCode
+Table: tbl_br_DeductCodes
+
+
+Key: idnAdjCode
+Table: tblAdjournmentcodes
+
+
+Key: idnBarCodeType
+Table: tblBarCodeType
+
+
+Key: idnDecCode
+Table: tblDecCode
+
+
+Key: idnInmate
+Table: tblInmateHousing
+
+
+Key: idnINSOffice
+Table: tblINSoffice
+
+
+Key: idnLang
+Table: tblLanguage
+
+
+Key: idnAppln
+Table: tblLookUp_Appln
+
+
+Key: idnLookupCluster
+Table: tblLookup_BIACluster
+
+
+Key: strcategory
+Table: tbllookup_Category
+
+
+Key: idnClEnSt
+Table: tblLookup_INS_Clock_Entry_Status
+
+
+Key: idnJuvenile
+Table: tblLookup_Juvenile
+
+
+Key: idnReason
+Table: tblLookup3MbrReferredReason
+
+
+Key: idnNat
+Table: tblLookupAlienNat
+
+
+Key: idnAllegStmt
+Table: tblLookUpAllegationStmt
+
+
+Key: idnAppealIssues
+Table: tblLookupAppealIssues
+
+
+Key: idnAppealType
+Table: tbllookupAppealType
+
+
+Key: idnBaseCity
+Table: tblLookupBaseCity
+
+
+Key: idnBIA
+Table: tblLookupBIA
+
+
+Key: idnBIAdec
+Table: tblLookupBIADecision
+
+
+Key: idnBIAdecType
+Table: tblLookupBIADecisionType
+
+
+Key: idnBoardMotion
+Table: tblLookupBoardMotions
+
+
+Key: idnCalType
+Table: tbllookupCal_Type
+
+
+Key: idnCalTypeReason
+Table: tblLookupCallup_Reasons
+
+
+Key: idnCaseIdentifier
+Table: tblLookUpCaseIdentifier
+
+
+Key: idnCaseType
+Table: tblLookupCaseType
+
+
+Key: idnCharges
+Table: tbllookupCharges
+
+
+Key: idnClaimedIssue
+Table: tblLookupClaimedIssue
+
+
+Key: idnCommBrd
+Table: tblLookupCommentTypeBoard
+
+
+Key: idnComp
+Table: tblLookupComponents
+
+
+Key: idnConsultedWith
+Table: tblLookupConsultedWith
+
+
+Key: idnContactChange
+Table: tblLookupContactChange
+
+
+Key: idnCountry
+Table: tblLookupCountry
+
+
+Key: idnCourtDecision
+Table: tblLookupCourtDecision
+
+
+Key: idnCustodyStatus
+Table: tblLookupCustodyStatus
+
+
+Key: idnDDDecType
+Table: tblLookUpDDDecisionTypes
+
+
+Key: idnDestLoc
+Table: tblLookupDistrictLocation
+
+
+Key: idnFedCourt
+Table: tblLookupFedCourtDecision
+
+
+Key: idnFee
+Table: tblLookupFeeStatus
+
+
+Key: idnFeeType
+Table: tblLookupFeeType
+
+
+Key: idnFiled
+Table: tblLookupFiledBy
+
+
+Key: idnFilingMethod
+Table: tblLookupFiling_Method
+
+
+Key: idnFilingParty
+Table: tblLookupFiling_Method_Party
+
+
+Key: idnFinDisp
+Table: tblLookupFinalDisposition
+
+
+Key: idnGender
+Table: tblLookupGender
+
+
+Key: idnHloc
+Table: tblLookupHloc
+
+
+Key: strCode
+Table: tblLookupHoldReason
+
+
+Key: idnHoliday
+Table: tblLookupHolidays
+
+
+Key: ID
+Table: tblLookupInmate
+
+
+Key: idnLookupINSAddress
+Table: tblLookUpINSAddress
+
+
+Key: ID
+Table: tblLookupINSLOC
+
+
+Key: ID
+Table: tblLookupINSTA
+
+
+Key: IDNIntrpr
+Table: tblLookupInTrPr
+
+
+Key: idnIntrPrAgenda
+Table: tblLookupInTrPrAgenda
+
+
+Key: idnintrprLang
+Table: tblLookupIntrPrLang
+
+
+Key: idnIntrLangGroup
+Table: tblLookupInTrPrLangGroup
+
+
+Key: idnJudge
+Table: tblLookupJudge
+
+
+Key: idnJudgeCity
+Table: tblLookupJudgeBaseCity
+
+
+Key: idnMotionType
+Table: tblLookupMotionType
+
+
+Key: ID
+Table: tblLookupNationality
+
+
+Key: IDNNOTORD
+Table: tblLookupNOTICE
+
+
+Key: idnOAResp
+Table: tblLookupOAResponse
+
+
+Key: idnOffLoc
+Table: tblLookupOfficeLocation
+
+
+Key: idnPriority
+Table: tblLookupPriority
+
+
+Key: idnRegion
+Table: tblLookupRegion
+
+
+Key: idnSchType
+Table: tbllookupSchedule_Type
+
+
+Key: idnCertificateOfServiceMeth
+Table: tblLookupService_Method
+
+
+Key: idnSpecIssue
+Table: tblLookupSpecialIssue
+
+
+Key: idnState
+Table: tblLookupState
+
+
+Key: idnTranscribers
+Table: tblLookupTranscribers
+
+
+Key: idnVote
+Table: tblLookupVote
+
+
+Key: idnPanel
+Table: tblPanels
+
+
+Key: idnResponsibleParty
+Table: tblResponsibleParty
+
+
+Key: idnTeam
+Table: tblTeams
+
+
+Key: idnTorConv
+Table: tblTortureConvID
+
+
