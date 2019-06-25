@@ -9,4 +9,5 @@ def load_into_sql():
          for name in files:
             csv_to_read = f'{root}/{name}'
             a = pd.read_csv(csv_to_read)
-            a.to_sql(con=engine, name='A_TblCaseIdentifier', if_exists='replace' )
+            table_name = name[:-4]
+            a.to_sql(con=engine, name=table_name, if_exists='replace' )
