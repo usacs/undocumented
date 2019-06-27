@@ -1,0 +1,380 @@
+Table: A_tblCase
+Other Tables Refrencing: A_tblCaseIdentifier,b_tblProceedCharges,b_tblProceeding,d_tblAssociatedBond,tbl_CasePriorityHistory,tbl_Court_Appln,tbl_Court_Motions,tbl_CustodyHistory,tbl_JuvenileHistory,tbl_Lead_Rider,tbl_RepsAssigned,tbl_schedule,tbl_Action,tbl_Appeal,A_TblCase,A_TblCaseIdentifier,B_TblProceedCharges,B_TblProceeding,D_TblAssociatedBond
+
+
+Table: A_tblCaseIdentifier
+Other Tables Refrencing: 
+
+
+Table: b_tblProceedCharges
+Other Tables Refrencing: 
+
+
+Table: b_tblProceeding
+Other Tables Refrencing: d_tblAssociatedBond,tbl_Court_Motions,tbl_JuvenileHistory,tbl_Lead_Rider,tbl_schedule,tbl_Action,tbl_Appeal
+
+
+Table: d_tblAssociatedBond
+Other Tables Refrencing: 
+
+
+Table: tbl_CasePriorityHistory
+Other Tables Refrencing: 
+
+
+Table: tbl_Court_Appln
+Other Tables Refrencing: 
+
+
+Table: tbl_Court_Motions
+Other Tables Refrencing: 
+
+
+Table: tbl_CustodyHistory
+Other Tables Refrencing: 
+
+
+Table: tbl_EOIR_Attorney
+Other Tables Refrencing: 
+
+
+Table: tbl_JuvenileHistory
+Other Tables Refrencing: 
+
+
+Table: tbl_Lead_Rider
+Other Tables Refrencing: 
+
+
+Table: tbl_RepsAssigned
+Other Tables Refrencing: 
+
+
+Table: tbl_schedule
+Other Tables Refrencing: 
+
+
+Table: tbl_Action
+Other Tables Refrencing: 
+
+
+Table: tbl_Appeal
+Other Tables Refrencing: tbl_AppealFedCourts,tbl_ProBono,tbl_ThreeMbrReferrals
+
+
+Table: tbl_AppealFedCourts
+Other Tables Refrencing: 
+
+
+Table: tbl_ProBono
+Other Tables Refrencing: 
+
+
+Table: tbl_ThreeMbrReferrals
+Other Tables Refrencing: 
+
+
+Table: tbl_br_DeductCodes
+Other Tables Refrencing: 
+
+
+Table: tblAdjournmentcodes
+Other Tables Refrencing: 
+
+
+Table: tblBarCodeType
+Other Tables Refrencing: 
+
+
+Table: tblDecCode
+Other Tables Refrencing: 
+
+
+Table: tblInmateHousing
+Other Tables Refrencing: 
+
+
+Table: tblINSoffice
+Other Tables Refrencing: 
+
+
+Table: tblLanguage
+Other Tables Refrencing: 
+
+
+Table: tblLookUp_Appln
+Other Tables Refrencing: 
+
+
+Table: tblLookup_BIACluster
+Other Tables Refrencing: 
+
+
+Table: tblLookup_CasePriority
+Other Tables Refrencing: 
+
+
+Table: tbllookup_Category
+Other Tables Refrencing: 
+
+
+Table: tblLookup_INS_Clock_Entry_Status
+Other Tables Refrencing: 
+
+
+Table: tblLookup_Juvenile
+Other Tables Refrencing: 
+
+
+Table: tblLookup3MbrReferredReason
+Other Tables Refrencing: 
+
+
+Table: tblLookupAlienNat
+Other Tables Refrencing: 
+
+
+Table: tblLookUpAllegationStmt
+Other Tables Refrencing: 
+
+
+Table: tblLookupAppealIssues
+Other Tables Refrencing: 
+
+
+Table: tbllookupAppealType
+Other Tables Refrencing: 
+
+
+Table: tblLookupBaseCity
+Other Tables Refrencing: 
+
+
+Table: tblLookupBIA
+Other Tables Refrencing: 
+
+
+Table: tblLookupBIADecision
+Other Tables Refrencing: 
+
+
+Table: tblLookupBIADecisionType
+Other Tables Refrencing: 
+
+
+Table: tblLookupBoardMotions
+Other Tables Refrencing: 
+
+
+Table: tbllookupCal_Type
+Other Tables Refrencing: 
+
+
+Table: tblLookupCallup_Reasons
+Other Tables Refrencing: 
+
+
+Table: tblLookUpCaseIdentifier
+Other Tables Refrencing: 
+
+
+Table: tblLookupCaseType
+Other Tables Refrencing: 
+
+
+Table: tbllookupCharges
+Other Tables Refrencing: 
+
+
+Table: tblLookupClaimedIssue
+Other Tables Refrencing: 
+
+
+Table: tblLookupCommentTypeBoard
+Other Tables Refrencing: 
+
+
+Table: tblLookupComponents
+Other Tables Refrencing: 
+
+
+Table: tblLookupConsultedWith
+Other Tables Refrencing: 
+
+
+Table: tblLookupContactChange
+Other Tables Refrencing: 
+
+
+Table: tblLookupCountry
+Other Tables Refrencing: 
+
+
+Table: tblLookupCourtDecision
+Other Tables Refrencing: 
+
+
+Table: tblLookupCustodyStatus
+Other Tables Refrencing: 
+
+
+Table: tblLookUpDDDecisionTypes
+Other Tables Refrencing: 
+
+
+Table: tblLookupDistrictLocation
+Other Tables Refrencing: 
+
+
+Table: tblLookupFedCourtDecision
+Other Tables Refrencing: 
+
+
+Table: tblLookupFeeStatus
+Other Tables Refrencing: 
+
+
+Table: tblLookupFeeType
+Other Tables Refrencing: 
+
+
+Table: tblLookupFiledBy
+Other Tables Refrencing: 
+
+
+Table: tblLookupFiling_Method
+Other Tables Refrencing: 
+
+
+Table: tblLookupFiling_Method_Party
+Other Tables Refrencing: 
+
+
+Table: tblLookupFinalDisposition
+Other Tables Refrencing: 
+
+
+Table: tblLookupGender
+Other Tables Refrencing: 
+
+
+Table: tblLookupHloc
+Other Tables Refrencing: 
+
+
+Table: tblLookupHoldReason
+Other Tables Refrencing: 
+
+
+Table: tblLookupHolidays
+Other Tables Refrencing: 
+
+
+Table: tblLookupInmate
+Other Tables Refrencing: 
+
+
+Table: tblLookUpINSAddress
+Other Tables Refrencing: 
+
+
+Table: tblLookupINSLOC
+Other Tables Refrencing: 
+
+
+Table: tblLookupINSTA
+Other Tables Refrencing: 
+
+
+Table: tblLookupInTrPr
+Other Tables Refrencing: 
+
+
+Table: tblLookupInTrPrAgenda
+Other Tables Refrencing: 
+
+
+Table: tblLookupIntrPrLang
+Other Tables Refrencing: 
+
+
+Table: tblLookupInTrPrLangGroup
+Other Tables Refrencing: 
+
+
+Table: tblLookupJudge
+Other Tables Refrencing: 
+
+
+Table: tblLookupJudgeBaseCity
+Other Tables Refrencing: 
+
+
+Table: tblLookupMotionType
+Other Tables Refrencing: 
+
+
+Table: tblLookupNationality
+Other Tables Refrencing: 
+
+
+Table: tblLookupNOTICE
+Other Tables Refrencing: 
+
+
+Table: tblLookupOAResponse
+Other Tables Refrencing: 
+
+
+Table: tblLookupOfficeLocation
+Other Tables Refrencing: 
+
+
+Table: tblLookupPriority
+Other Tables Refrencing: 
+
+
+Table: tblLookupRegion
+Other Tables Refrencing: 
+
+
+Table: tbllookupSchedule_Type
+Other Tables Refrencing: 
+
+
+Table: tblLookupService_Method
+Other Tables Refrencing: 
+
+
+Table: tblLookupSpecialIssue
+Other Tables Refrencing: 
+
+
+Table: tblLookupState
+Other Tables Refrencing: 
+
+
+Table: tblLookupTranscribers
+Other Tables Refrencing: 
+
+
+Table: tblLookupVote
+Other Tables Refrencing: 
+
+
+Table: tblPanels
+Other Tables Refrencing: 
+
+
+Table: tblResponsibleParty
+Other Tables Refrencing: 
+
+
+Table: tblTeams
+Other Tables Refrencing: 
+
+
+Table: tblTortureConvID
+Other Tables Refrencing: 
+
+

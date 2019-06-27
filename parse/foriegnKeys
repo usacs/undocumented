@@ -1,0 +1,380 @@
+Table: A_tblCase
+Foriegn Keys: ['IDNCASEID', 'IDNPRCDCHG', 'IDNPROCEEDING', 'IDNASSOCBOND', 'idnCasePriHistory', 'IDNPROCEEDINGAPPLN', 'IDNMOTION', 'IDNCUSTODY', 'idnJuvenileHistory', 'idnLeadRider', 'IDNREPSASSIGNED', 'IDNSCHEDULE', 'IDNACTION', 'idnAppeal', 'IDNCASE', 'IDNCASEID', 'IDNPRCDCHG', 'IDNPROCEEDING', 'IDNASSOCBOND']
+
+
+Table: A_tblCaseIdentifier
+Foriegn Keys: []
+
+
+Table: b_tblProceedCharges
+Foriegn Keys: []
+
+
+Table: b_tblProceeding
+Foriegn Keys: ['IDNASSOCBOND', 'IDNMOTION', 'idnJuvenileHistory', 'idnLeadRider', 'IDNSCHEDULE', 'IDNACTION', 'idnAppeal']
+
+
+Table: d_tblAssociatedBond
+Foriegn Keys: []
+
+
+Table: tbl_CasePriorityHistory
+Foriegn Keys: []
+
+
+Table: tblLookup_CasePriority
+Foriegn Keys: []
+
+
+Table: tbl_Court_Appln
+Foriegn Keys: []
+
+
+Table: tbl_Court_Motions
+Foriegn Keys: []
+
+
+Table: tbl_CustodyHistory
+Foriegn Keys: []
+
+
+Table: tbl_EOIR_Attorney
+Foriegn Keys: []
+
+
+Table: tbl_JuvenileHistory
+Foriegn Keys: []
+
+
+Table: tbl_Lead_Rider
+Foriegn Keys: []
+
+
+Table: tbl_RepsAssigned
+Foriegn Keys: []
+
+
+Table: tbl_schedule
+Foriegn Keys: []
+
+
+Table: tbl_Action
+Foriegn Keys: []
+
+
+Table: tbl_Appeal
+Foriegn Keys: ['idnAppealFedCourts', 'No', 'idn3MemberReferral']
+
+
+Table: tbl_AppealFedCourts
+Foriegn Keys: []
+
+
+Table: tbl_ProBono
+Foriegn Keys: []
+
+
+Table: tbl_ThreeMbrReferrals
+Foriegn Keys: []
+
+
+Table: tbl_br_DeductCodes
+Foriegn Keys: []
+
+
+Table: tblAdjournmentcodes
+Foriegn Keys: []
+
+
+Table: tblBarCodeType
+Foriegn Keys: []
+
+
+Table: tblDecCode
+Foriegn Keys: []
+
+
+Table: tblInmateHousing
+Foriegn Keys: []
+
+
+Table: tblINSoffice
+Foriegn Keys: []
+
+
+Table: tblLanguage
+Foriegn Keys: []
+
+
+Table: tblLookUp_Appln
+Foriegn Keys: []
+
+
+Table: tblLookup_BIACluster
+Foriegn Keys: []
+
+
+Table: tbllookup_Category
+Foriegn Keys: []
+
+
+Table: tblLookup_INS_Clock_Entry_Status
+Foriegn Keys: []
+
+
+Table: tblLookup_Juvenile
+Foriegn Keys: []
+
+
+Table: tblLookup3MbrReferredReason
+Foriegn Keys: []
+
+
+Table: tblLookupAlienNat
+Foriegn Keys: []
+
+
+Table: tblLookUpAllegationStmt
+Foriegn Keys: []
+
+
+Table: tblLookupAppealIssues
+Foriegn Keys: []
+
+
+Table: tbllookupAppealType
+Foriegn Keys: []
+
+
+Table: tblLookupBaseCity
+Foriegn Keys: []
+
+
+Table: tblLookupBIA
+Foriegn Keys: []
+
+
+Table: tblLookupBIADecision
+Foriegn Keys: []
+
+
+Table: tblLookupBIADecisionType
+Foriegn Keys: []
+
+
+Table: tblLookupBoardMotions
+Foriegn Keys: []
+
+
+Table: tbllookupCal_Type
+Foriegn Keys: []
+
+
+Table: tblLookupCallup_Reasons
+Foriegn Keys: []
+
+
+Table: tblLookUpCaseIdentifier
+Foriegn Keys: []
+
+
+Table: tblLookupCaseType
+Foriegn Keys: []
+
+
+Table: tbllookupCharges
+Foriegn Keys: []
+
+
+Table: tblLookupClaimedIssue
+Foriegn Keys: []
+
+
+Table: tblLookupCommentTypeBoard
+Foriegn Keys: []
+
+
+Table: tblLookupComponents
+Foriegn Keys: []
+
+
+Table: tblLookupConsultedWith
+Foriegn Keys: []
+
+
+Table: tblLookupContactChange
+Foriegn Keys: []
+
+
+Table: tblLookupCountry
+Foriegn Keys: []
+
+
+Table: tblLookupCourtDecision
+Foriegn Keys: []
+
+
+Table: tblLookupCustodyStatus
+Foriegn Keys: []
+
+
+Table: tblLookUpDDDecisionTypes
+Foriegn Keys: []
+
+
+Table: tblLookupDistrictLocation
+Foriegn Keys: []
+
+
+Table: tblLookupFedCourtDecision
+Foriegn Keys: []
+
+
+Table: tblLookupFeeStatus
+Foriegn Keys: []
+
+
+Table: tblLookupFeeType
+Foriegn Keys: []
+
+
+Table: tblLookupFiledBy
+Foriegn Keys: []
+
+
+Table: tblLookupFiling_Method
+Foriegn Keys: []
+
+
+Table: tblLookupFiling_Method_Party
+Foriegn Keys: []
+
+
+Table: tblLookupFinalDisposition
+Foriegn Keys: []
+
+
+Table: tblLookupGender
+Foriegn Keys: []
+
+
+Table: tblLookupHloc
+Foriegn Keys: []
+
+
+Table: tblLookupHoldReason
+Foriegn Keys: []
+
+
+Table: tblLookupHolidays
+Foriegn Keys: []
+
+
+Table: tblLookupInmate
+Foriegn Keys: []
+
+
+Table: tblLookUpINSAddress
+Foriegn Keys: []
+
+
+Table: tblLookupINSLOC
+Foriegn Keys: []
+
+
+Table: tblLookupINSTA
+Foriegn Keys: []
+
+
+Table: tblLookupInTrPr
+Foriegn Keys: []
+
+
+Table: tblLookupInTrPrAgenda
+Foriegn Keys: []
+
+
+Table: tblLookupIntrPrLang
+Foriegn Keys: []
+
+
+Table: tblLookupInTrPrLangGroup
+Foriegn Keys: []
+
+
+Table: tblLookupJudge
+Foriegn Keys: []
+
+
+Table: tblLookupJudgeBaseCity
+Foriegn Keys: []
+
+
+Table: tblLookupMotionType
+Foriegn Keys: []
+
+
+Table: tblLookupNationality
+Foriegn Keys: []
+
+
+Table: tblLookupNOTICE
+Foriegn Keys: []
+
+
+Table: tblLookupOAResponse
+Foriegn Keys: []
+
+
+Table: tblLookupOfficeLocation
+Foriegn Keys: []
+
+
+Table: tblLookupPriority
+Foriegn Keys: []
+
+
+Table: tblLookupRegion
+Foriegn Keys: []
+
+
+Table: tbllookupSchedule_Type
+Foriegn Keys: []
+
+
+Table: tblLookupService_Method
+Foriegn Keys: []
+
+
+Table: tblLookupSpecialIssue
+Foriegn Keys: []
+
+
+Table: tblLookupState
+Foriegn Keys: []
+
+
+Table: tblLookupTranscribers
+Foriegn Keys: []
+
+
+Table: tblLookupVote
+Foriegn Keys: []
+
+
+Table: tblPanels
+Foriegn Keys: []
+
+
+Table: tblResponsibleParty
+Foriegn Keys: []
+
+
+Table: tblTeams
+Foriegn Keys: []
+
+
+Table: tblTortureConvID
+Foriegn Keys: []
+
+
