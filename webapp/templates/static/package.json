@@ -1,0 +1,42 @@
+{
+  "name": "undocumented",
+  "version": "1.0.0",
+  "description": "App displaying federal immigration data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo works",
+    "build": "webpack -p --progress --config webpack.config.js",
+    "dev-build": "webpack --progress -d --config webpack.config.js",
+    "watch": "webpack --progress -d --config webpack.config.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Sail338/undocumented.git"
+  },
+  "keywords": [
+    "immigration",
+    "data"
+  ],
+  "author": "Sahana Srinivasan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sail338/undocumented/issues"
+  },
+  "homepage": "https://github.com/Sail338/undocumented#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^3.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
+  },
+  "dependencies": {
+    "history": "^4.9.0",
+    "react-router-dom": "^5.0.1"
+  }
+}
