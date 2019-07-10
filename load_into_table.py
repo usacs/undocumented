@@ -19,4 +19,4 @@ def load_into_sql(path):
                     table_name = name[:-4]
                     a.to_sql(con=engine, name=table_name, if_exists='replace' )
 
-load_into_sql("/Users/hari/downloads/gay")
+load_into_sql("file")
