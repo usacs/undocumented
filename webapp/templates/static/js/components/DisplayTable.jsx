@@ -31,6 +31,19 @@ export default class DisplayTable extends Component{
             this.seralizeTable(["a","b","c","d","e","f","g","ga","ss","aa","aad","as","aas","s","go","fo","no","too"])
         })
     }
+
+    getNextPage(){
+        let page = this.state.page;
+        page +=1
+        this.setState({
+            page:page
+        })
+        getTable(this.state.page,this.props.table).then(data=>{
+            console.log("serialzed the data")
+            //from now on only grab next data
+            this.seralizeData(data)
+        })
+    }
     
     /**
      * Set Table name and col info
