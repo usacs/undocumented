@@ -1,12 +1,12 @@
 from flask import render_template, Blueprint, request, jsonify, session
 import driver
-from sql import SQL
+from driver.sql import SQL
 blueprint = Blueprint('src',__name__)
 @blueprint.route('/')
 def index():
  return render_template("index.html")
 
- @blueprint.route('/get-table',methods=["POST"])
+ @blueprint.route('/get-table',methods=("POST"))
  def getTable():
      sql = SQL()
      sql.connect()
