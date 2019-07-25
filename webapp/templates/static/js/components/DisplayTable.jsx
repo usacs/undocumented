@@ -25,23 +25,22 @@ export default class DisplayTable extends Component{
      */
     componentDidMount(){
         getTable(this.state.page,this.props.table).then(data=>{
-            console.log(data)
+            console.log("serialzed the data")
+
+            this.seralizeData(data)
+            this.seralizeTable(["a","b","c","d","e","f","g","ga","ss","aa","aad","as","aas","s","go","fo","no","too"])
         })
-        // this.seralizeTable(data)
-        // this.seralizeData(data)
-        
-        
     }
     
     /**
      * Set Table name and col info
      */
     seralizeTable(data) {
-        const colnames = data.colnames;
+        const colnames = data;
         //Componets for the columns
         let colsComponents = []
 
-        colnames.foreach(item=>{
+        colnames.forEach(item=>{
             colsComponents.push(<TableCell>{item}</TableCell>)
         })
         this.setState({
@@ -51,12 +50,17 @@ export default class DisplayTable extends Component{
 
     seralizeData(data){
         const rows = this.state.rows;
-        for(let i=0;i<data.tableContent;i++){
+        console.log(data)
+        for(let i=0;i<data.length;i++){
             let rowData = []
-            for(let j =0;j<data.tableContent[i];j++){
-                rowData.push(<TableCell>{data.tableContent[i][j]}</TableCell>)
+            for (let key in data[i]) {
+                console.log(key)
+                if (data[i].hasOwnProperty(key)) {
+                    rowData.push(<TableCell>{data[i][key]}</TableCell>)
+                }
             }
-            rows.push(<TableRow key = { data.tableContent[i][0]}>{rowData}</TableRow>)
+
+            rows.push(<TableRow key = { data[i][0]}>{rowData}</TableRow>)
             this.setState({
                 rows:rows
             })
