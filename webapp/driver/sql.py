@@ -10,7 +10,7 @@ class SQL:
         """
         connection = pymysql.connect(host = config.host, user = config.username,password = config.password,db  = 'data',cursorclass = pymysql.cursors.DictCursor)
         self.conn = connection
-    def SelectQuery(query:str,x = None,one:bool = True)->dict:
+    def SelectQuery(self,query:str,x = None,one:bool = True)->dict:
         """
             Returns a SELECT  query, default is fetchOne , but specify one = False to fetchAll
         """
