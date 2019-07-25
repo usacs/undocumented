@@ -4,7 +4,7 @@ export default class Home extends Component {
     
     render() {
        return (
-          <DisplayTable table = "A_tblCase"/>
+          <DisplayTable table = "A_TblCase"/>
        )
     }
 }

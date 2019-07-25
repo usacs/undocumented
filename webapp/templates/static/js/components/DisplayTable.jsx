@@ -6,12 +6,13 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Tab } from '@material-ui/core';
+
 /**
  * This component displays a table
  */
 export default class DisplayTable extends Component{
     constructor(props){
+
         super(props)
         this.state = {
             columnNames : [],
@@ -23,10 +24,15 @@ export default class DisplayTable extends Component{
      * On Mount make a request
      */
     componentDidMount(){
-        const data = getTable(this.state.page,this.props.tableName)
-        this.seralizeTable(data)
-        this.seralizeData(DataCue)
+        getTable(this.state.page,this.props.table).then(data=>{
+            console.log(data)
+        })
+        // this.seralizeTable(data)
+        // this.seralizeData(data)
+        
+        
     }
+    
     /**
      * Set Table name and col info
      */
@@ -62,6 +68,9 @@ export default class DisplayTable extends Component{
      * Display table info given the page and stuff
      */
     render(){
+        if(this.state.rows == []){
+            return <div> Loading</div>
+        }
         return (
             <Paper className={this.props.table}>
             <Table className={this.props.table}>
