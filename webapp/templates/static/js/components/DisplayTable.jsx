@@ -19,6 +19,7 @@ export default class DisplayTable extends Component{
             rows : [],
             page:0
         }
+        this.onClickTest = this.onClickTest.bind(this)
     }
     /**
      * On Mount make a request
@@ -28,9 +29,10 @@ export default class DisplayTable extends Component{
             console.log("serialzed the data")
 
             this.seralizeData(data)
-            this.seralizeTable(["a","b","c","d","e","f","g","ga","ss","aa","aad","as","aas","s","go","fo","no","too"])
-        })
-    }
+            this.seralizeTable(data)
+    })
+}
+    
 
     getNextPage(){
         let page = this.state.page;
@@ -44,12 +46,20 @@ export default class DisplayTable extends Component{
             this.seralizeData(data)
         })
     }
+
+   onClickTest(evt){
+        const col = evt.target.getAttribute("column");
+        const colVal = evt.target.getAttribute("name")
+        getAllTablesForQuery(col,colVal).then(data=>{
+            console.log(data);
+        });
+   }
     
     /**
      * Set Table name and col info
      */
     seralizeTable(data) {
-        const colnames = data;
+        const colnames = Object.keys(data[0]);
         //Componets for the columns
         let colsComponents = []
 
@@ -60,16 +70,18 @@ export default class DisplayTable extends Component{
             columnNames : colsComponents
         });
     }
-
+    /**
+     * 
+     * Serialize the data from the flask request
+     */
     seralizeData(data){
         const rows = this.state.rows;
-        console.log(data)
         for(let i=0;i<data.length;i++){
             let rowData = []
             for (let key in data[i]) {
                 console.log(key)
                 if (data[i].hasOwnProperty(key)) {
-                    rowData.push(<TableCell>{data[i][key]}</TableCell>)
+                    rowData.push(<TableCell column={key} name={data[i][key]} onClick={this.onClickTest}>{data[i][key]}</TableCell>)
                 }
             }
 
