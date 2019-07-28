@@ -12,6 +12,11 @@ blueprint = Blueprint('src',__name__)
 def index():
  return render_template("index.html")
 
+ @blueprint.route('/reset',methods=["GET"])
+ def reset():
+     session["currQuery"] = ""
+     return render_template("index.html")
+
 @blueprint.route('/get-table',methods=["POST"])
 def getTable():
      sql = SQL()
