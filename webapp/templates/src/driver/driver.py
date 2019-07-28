@@ -39,7 +39,7 @@ def new_tables(sql,oldQuery,addition):
         newTable["tableContent"] = []
 
         #Get all the rows for this table
-        query = "SELECT * FROM "+table[2]+" WhHERE "+newQuery
+        query = "SELECT * FROM "+table[2]+" WHERE "+newQuery
         rows = sql.SelectQuery(query,one=False)
         rowData = []
         for row in rows:
@@ -67,6 +67,7 @@ def contains_query_columns(sql,query,columns):
     # Query Looks like this: a=3 AND b=2 AND c=5
     columnsList = query.replace(" ","").split("AND")
     for i in range(0,len(columns)):
+    
         columns[i]['COLUMN_NAME'] = columns[i]['COLUMN_NAME'].upper()
     for d in columnsList:
         if d.split("=")[0].upper() in columns:
