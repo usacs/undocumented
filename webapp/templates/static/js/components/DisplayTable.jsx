@@ -19,7 +19,7 @@ export default class DisplayTable extends Component{
             rows : [],
             page:0
         }
-        this.onClickTest = this.onClickTest.bind(this)
+        this.onClickTest = this.props.onClickHandler.bind(this)
     }
     /**
      * On Mount make a request
@@ -47,14 +47,7 @@ export default class DisplayTable extends Component{
         })
     }
 
-   onClickTest(evt){
-        const col = evt.target.getAttribute("column");
-        const colVal = evt.target.getAttribute("name")
-        getAllTablesForQuery(col,colVal).then(data=>{
-            console.log(data);
-        });
-   }
-    
+ 
     /**
      * Set Table name and col info
      */

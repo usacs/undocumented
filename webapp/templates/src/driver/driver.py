@@ -3,6 +3,8 @@ from operator import itemgetter
 # class to write querie
 NUM_ENTRIES_PER_PAGE = 100
 
+
+
 def get_table(sql, curr_page = 0,tableName='A_TblCase'):
     query = f'SELECT * FROM {tableName} LIMIT {NUM_ENTRIES_PER_PAGE * (curr_page +1 )} OFFSET {curr_page  * NUM_ENTRIES_PER_PAGE}'
     return (sql.SelectQuery(query,one = False))
@@ -17,34 +19,43 @@ def new_tables(sql,oldQuery,addition):
     value = addition['value']
     tablesQuery = f"SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'"
     tables = sql.SelectQuery(tablesQuery,one=False)
-    newQuery = oldQuery + "AND "+columnName+"="+value
+    if(oldQuery == ''):
+        newQuery = f"{columnName}={value}"
+    else:
+        newQuery = f"{oldQuery} AND {columnName}={value}"
     newData["currentQuery"] = newQuery
 
     #Find the tables that have this column
     tableMatch = []
+    print(newQuery)
     for table in tables:
         table_parsed = table['TABLE_NAME']
         columns = get_columns(sql,table_parsed)
         numMatchingColumns = contains_query_columns(sql,newQuery,columns)
         if numMatchingColumns != 0:
             insertTable(numMatchingColumns,table_parsed,columns,tableMatch)
+            print("Num Matching Cols: ", numMatchingColumns)
 
     newData["tables"] = []
+    print(tableMatch)
     #Each entry of tableMatch is a tuple containing: (number of matching columns with new query, columns in current table, table Name)
     for table in tableMatch:
         newTable = {}
-        newTable["tableName"] = table[2]
-        newTable["numberOfMatchingColumns"] = table[0]
-        newTable["columnNames"] = table[1]
+        newTable["tableName"] = table[0]
+        newTable["numberOfMatchingColumns"] = table[1]
+        newTable["columnNames"] = [i['COLUMN_NAME'].upper() for i in table[2]]
         newTable["tableContent"] = []
 
         #Get all the rows for this table
-        query = "SELECT * FROM "+table[2]+" WHERE "+newQuery
+        
+        query = f"SELECT * FROM {table[0]}  WHERE {newQuery}"
+        print(newQuery)
         rows = sql.SelectQuery(query,one=False)
         rowData = []
         for row in rows:
             for value in row.values():
-                value = value.replace(" ","")
+                if type(value) == str:
+                    value = value.replace(" ","")
                 rowData.append(value)
             newTable["tableContent"].append(rowData)
             rowData = []
@@ -66,11 +77,13 @@ def contains_query_columns(sql,query,columns):
     #Get the columns that we want:
     # Query Looks like this: a=3 AND b=2 AND c=5
     columnsList = query.replace(" ","").split("AND")
+    #extracted out columns names from the returned JSON
+    columnsParsed = []
     for i in range(0,len(columns)):
-    
-        columns[i]['COLUMN_NAME'] = columns[i]['COLUMN_NAME'].upper()
+        #columns[i]['COLUMN_NAME'] = columns[i]['COLUMN_NAME'].upper()
+        columnsParsed.append(columns[i]['COLUMN_NAME'].upper())
     for d in columnsList:
-        if d.split("=")[0].upper() in columns:
+        if d.split("=")[0].upper() in columnsParsed:
             numMatching +=1
 
     return numMatching
