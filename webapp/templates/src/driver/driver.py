@@ -27,17 +27,17 @@ def new_tables(sql,oldQuery,addition):
 
     #Find the tables that have this column
     tableMatch = []
-    print(newQuery)
     for table in tables:
         table_parsed = table['TABLE_NAME']
         columns = get_columns(sql,table_parsed)
-        numMatchingColumns = contains_query_columns(sql,newQuery,columns)
+        matchingAndQuery = contains_query_columns(sql,newQuery,columns)
+        numMatchingColumns = matchingAndQuery[0]
+        updatedQuery = matchingAndQuery[1]
         if numMatchingColumns != 0:
-            insertTable(numMatchingColumns,table_parsed,columns,tableMatch)
+            insertTable(numMatchingColumns,table_parsed,columns,updatedQuery,tableMatch)
             print("Num Matching Cols: ", numMatchingColumns)
 
     newData["tables"] = []
-    print(tableMatch)
     #Each entry of tableMatch is a tuple containing: (number of matching columns with new query, columns in current table, table Name)
     for table in tableMatch:
         newTable = {}
@@ -47,9 +47,8 @@ def new_tables(sql,oldQuery,addition):
         newTable["tableContent"] = []
 
         #Get all the rows for this table
-        
-        query = f"SELECT * FROM {table[0]}  WHERE {newQuery}"
-        print(newQuery)
+
+        query = f"SELECT * FROM {table[0]}  WHERE {table[3]}"
         rows = sql.SelectQuery(query,one=False)
         rowData = []
         for row in rows:
@@ -66,8 +65,8 @@ def new_tables(sql,oldQuery,addition):
 
     return newData
 
-def insertTable(numMatchingColumns,table,columns,tableMatch):
-    tableMatch.append( (table,numMatchingColumns,columns) )
+def insertTable(numMatchingColumns,table,columns,query,tableMatch):
+    tableMatch.append( (table,numMatchingColumns,columns,query) )
     tableMatch.sort(key=itemgetter(1))
     return
 
@@ -82,11 +81,15 @@ def contains_query_columns(sql,query,columns):
     for i in range(0,len(columns)):
         #columns[i]['COLUMN_NAME'] = columns[i]['COLUMN_NAME'].upper()
         columnsParsed.append(columns[i]['COLUMN_NAME'].upper())
-    for d in columnsList:
-        if d.split("=")[0].upper() in columnsParsed:
+    for i in range(len(columnsList)):
+        if columnsList[i].split("=")[0].upper() in columnsParsed:
             numMatching +=1
-
-    return numMatching
+        else:
+            # If the column doesnt exist in the table, remove it so the query doesnt break
+            del columnsList[i]
+            i-=1
+    newQuery = " AND ".join(columnsList)
+    return (numMatching,newQuery)
 
 
 def get_columns(sql,table):
