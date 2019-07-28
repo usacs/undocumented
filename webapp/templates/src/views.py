@@ -21,7 +21,10 @@ def getTable():
      print(data)
      tableName = data["table"]
      page = int(data['page'])
-     tableData = driver.get_table(sql,page,tableName)
+     if "currQuery" not in session:
+         session["currQuery"] = ""
+     query = session["currQuery"]
+     tableData = driver.get_table(sql,query,page,tableName)
      return jsonify(tableData)
 
 @blueprint.route('/new-query',methods=["POST"])
@@ -35,4 +38,3 @@ def newQuery():
     newData = driver.new_tables(sql,oldQuery,data)
     session["currQuery"] = newData["currentQuery"]
     return jsonify(newData)
-

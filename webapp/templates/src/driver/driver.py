@@ -5,8 +5,12 @@ NUM_ENTRIES_PER_PAGE = 100
 
 
 
-def get_table(sql, curr_page = 0,tableName='A_TblCase'):
-    query = f'SELECT * FROM {tableName} LIMIT {NUM_ENTRIES_PER_PAGE * (curr_page +1 )} OFFSET {curr_page  * NUM_ENTRIES_PER_PAGE}'
+def get_table(sql, newQuery, curr_page = 0,tableName='A_TblCase'):
+    query = ""
+    if len(newQuery) == 0:
+        query = f'SELECT * FROM {tableName} LIMIT {NUM_ENTRIES_PER_PAGE * (curr_page +1 )} OFFSET {curr_page  * NUM_ENTRIES_PER_PAGE}'
+    else:
+        query = f'SELECT * FROM {tableName} WHERE {newQuery} LIMIT {NUM_ENTRIES_PER_PAGE * (curr_page +1 )} OFFSET {curr_page  * NUM_ENTRIES_PER_PAGE}'
     return (sql.SelectQuery(query,one = False))
 
 #To get a new set of tables we need the following:
@@ -20,9 +24,17 @@ def new_tables(sql,oldQuery,addition):
     tablesQuery = f"SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'"
     tables = sql.SelectQuery(tablesQuery,one=False)
     if(oldQuery == ''):
-        newQuery = f"{columnName}={value}"
+        try:
+            float(value)
+            newQuery = f"{columnName}={value}"
+        except ValueError:
+            newQuery = f"{columnName}=\"{value}\""
     else:
-        newQuery = f"{oldQuery} AND {columnName}={value}"
+        try:
+            float(value)
+            newQuery = f"{oldQuery} AND {columnName}={value}"
+        except ValueError:
+            newQuery = f"{oldQuery} AND {columnName}=\"{value}\""
     newData["currentQuery"] = newQuery
 
     #Find the tables that have this column
@@ -74,10 +86,6 @@ def contains_query_columns(sql,query,columns):
     i = 0
     while i < len(columnsList):
         if columnsList[i].split("=")[0].upper() in columnsParsed:
-            try:
-                float(columnsList[i].split("=")[1])
-            except ValueError:
-                columnsList[i] = f'{columnsList[i][:columnsList[i].index("=")+1]}\"{columnsList[i][columnsList[i].index("=")+1:]}\"'
             numMatching +=1
         else:
             # If the column doesnt exist in the table, remove it so the query doesnt break
