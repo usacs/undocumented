@@ -15,15 +15,19 @@ export default class Home extends Component {
       const col = evt.target.getAttribute("column");
       const colVal = evt.target.getAttribute("name")
       getAllTablesForQuery(col,colVal).then(data=>{
-          console.log(data);
           let newData = []
           data['tables'].forEach(data =>{
              newData.push(<DisplayTable table = {data['tableName']} onClickHandler ={this.onClickTest}></DisplayTable>)
           })
+          this.setState({
+             tablesToShow:[]
+          })
+         
    
           this.setState({
              tablesToShow:newData
           })
+          console.log(this.state)
 
           
       });

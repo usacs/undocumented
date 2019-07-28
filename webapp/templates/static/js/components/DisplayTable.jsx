@@ -87,25 +87,28 @@ export default class DisplayTable extends Component {
      * Display table info given the page and stuff
      */
     render() {
-        if (this.state.rows == []) {
-            return <div> Loading</div>
+        if (this.state.rows.length == 0 ) {
+            return <div></div>
         }
-        return (
+        if(this.state.rows.length > 0){
+            return (
+                <Paper className={this.props.table}>
+                    <h1>{this.props.table}</h1>
+                    <Table className={this.props.table}>
+                        <TableHead>
+                            <TableRow>
+                                {this.state.columnNames}
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {this.state.rows}
+                        </TableBody>
+                    </Table>
+                </Paper>
+            )
 
-            <Paper className={this.props.table}>
-                <h1>{this.props.table}</h1>
-                <Table className={this.props.table}>
-                    <TableHead>
-                        <TableRow>
-                            {this.state.columnNames}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {this.state.rows}
-                    </TableBody>
-                </Table>
-            </Paper>
-        )
+        }
+       
     }
 
 }
