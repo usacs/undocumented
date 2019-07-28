@@ -3,3 +3,4 @@ bin/
 lib/
 .DS_Store
 __pycache__
+config.py

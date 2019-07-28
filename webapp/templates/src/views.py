@@ -33,6 +33,6 @@ def newQuery():
         session["currQuery"] = ""
     oldQuery = session["currQuery"]
     newData = driver.new_tables(sql,oldQuery,data)
-    session["currQuery"] = newDatta["currentQuery"]
+    session["currQuery"] = newData["currentQuery"]
     return jsonify(newData)
 

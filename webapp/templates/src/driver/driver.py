@@ -11,11 +11,11 @@ def get_table(sql, curr_page = 0,tableName='A_TblCase'):
 #1. The Query used to obtain the last set of tables
 #2. The new column name and value to be added to the new query
 #3. A list of tables used for the previous set of tables.
-def new_tables(sql,oldQuery,oldData,addition):
+def new_tables(sql,oldQuery,addition):
     newData = {}
     columnName = addition['columnName']
     value = addition['value']
-    tablesQuery = "SELECT TABLE_NAME FROM data.INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = \'BASE TABLE\'"
+    tablesQuery = f"SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'"
     tables = sql.SelectQuery(tablesQuery,one=False)
     newQuery = oldQuery + "AND "+columnName+"="+value
     newData["currentQuery"] = newQuery
@@ -23,10 +23,11 @@ def new_tables(sql,oldQuery,oldData,addition):
     #Find the tables that have this column
     tableMatch = []
     for table in tables:
-        columns = get_columns(sql,table)
+        table_parsed = table['TABLE_NAME']
+        columns = get_columns(sql,table_parsed)
         numMatchingColumns = contains_query_columns(sql,newQuery,columns)
         if numMatchingColumns != 0:
-            insertTable(numMatchingColumns,table,columns,tableMatch)
+            insertTable(numMatchingColumns,table_parsed,columns,tableMatch)
 
     newData["tables"] = []
     #Each entry of tableMatch is a tuple containing: (number of matching columns with new query, columns in current table, table Name)
@@ -66,14 +67,14 @@ def contains_query_columns(sql,query,columns):
     # Query Looks like this: a=3 AND b=2 AND c=5
     columnsList = query.replace(" ","").split("AND")
     for i in range(0,len(columns)):
-        columns[i] = columns[i].toUpper()
+        columns[i]['COLUMN_NAME'] = columns[i]['COLUMN_NAME'].upper()
     for d in columnsList:
-        if d.split("=")[0].toUpper() in columns:
+        if d.split("=")[0].upper() in columns:
             numMatching +=1
 
     return numMatching
 
 
 def get_columns(sql,table):
-    query = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME ="+table
+    query = f"SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{table}'"
     return (sql.SelectQuery(query,one = False))
