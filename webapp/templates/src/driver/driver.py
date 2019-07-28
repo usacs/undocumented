@@ -49,6 +49,7 @@ def new_tables(sql,oldQuery,addition):
         #Get all the rows for this table
 
         query = f"SELECT * FROM {table[0]}  WHERE {table[3]}"
+        print(query)
         rows = sql.SelectQuery(query,one=False)
         rowData = []
         for row in rows:
@@ -81,16 +82,21 @@ def contains_query_columns(sql,query,columns):
     for i in range(0,len(columns)):
         #columns[i]['COLUMN_NAME'] = columns[i]['COLUMN_NAME'].upper()
         columnsParsed.append(columns[i]['COLUMN_NAME'].upper())
-    for i in range(len(columnsList)):
+    i = 0
+    while i < len(columnsList):
         if columnsList[i].split("=")[0].upper() in columnsParsed:
+            try:
+                float(columnsList[i].split("=")[1])
+            except ValueError:
+                columnsList[i] = f'{columnsList[i][:columnsList[i].index("=")+1]}\"{columnsList[i][columnsList[i].index("=")+1:]}\"'
             numMatching +=1
         else:
             # If the column doesnt exist in the table, remove it so the query doesnt break
             del columnsList[i]
             i-=1
+        i+=1
     newQuery = " AND ".join(columnsList)
     return (numMatching,newQuery)
-
 
 def get_columns(sql,table):
     query = f"SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{table}'"
