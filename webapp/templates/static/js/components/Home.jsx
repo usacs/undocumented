@@ -3,8 +3,9 @@ import DisplayTable from './DisplayTable'
 import  {getTable,getAllTablesForQuery} from '../api/api'
 export default class Home extends Component {
 
-   constructor(){
-      super()
+   constructor(props){
+      super(props)
+      this.onClickTest = this.onClickTest.bind(this)
       this.state = {
          tablesToShow:[<DisplayTable table = "A_TblCase" onClickHandler ={this.onClickTest}></DisplayTable>]
       }
@@ -16,10 +17,16 @@ export default class Home extends Component {
       getAllTablesForQuery(col,colVal).then(data=>{
           console.log(data);
           let newData = []
+          data['tables'].forEach(data =>{
+             newData.push(<DisplayTable table = {data['tableName']} onClickHandler ={this.onClickTest}></DisplayTable>)
+          })
+   
+          this.setState({
+             tablesToShow:newData
+          })
 
           
       });
-      
  }
     render() {
        return (
