@@ -12,8 +12,8 @@ import Paper from '@material-ui/core/Paper';
  */
 export default class DisplayTable extends Component{
     constructor(props){
-
         super(props)
+       
         this.state = {
             columnNames : [],
             rows : [],
@@ -70,7 +70,6 @@ export default class DisplayTable extends Component{
         for(let i=0;i<data.length;i++){
             let rowData = []
             for (let key in data[i]) {
-                console.log(key)
                 if (data[i].hasOwnProperty(key)) {
                     rowData.push(<TableCell column={key} name={data[i][key]} onClick={this.props.onClickHandler}>{data[i][key]}</TableCell>)
                 }
