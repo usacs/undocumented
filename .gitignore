@@ -4,3 +4,4 @@ lib/
 .DS_Store
 __pycache__
 config.py
+webapp/templates/public/bundle.js
