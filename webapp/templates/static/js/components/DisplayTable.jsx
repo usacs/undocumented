@@ -19,15 +19,13 @@ export default class DisplayTable extends Component{
             rows : [],
             page:0
         }
-        this.onClickTest = this.props.onClickHandler.bind(this)
+     
     }
     /**
      * On Mount make a request
      */
     componentDidMount(){
         getTable(this.state.page,this.props.table).then(data=>{
-            console.log("serialzed the data")
-
             this.seralizeData(data)
             this.seralizeTable(data)
     })
@@ -74,7 +72,7 @@ export default class DisplayTable extends Component{
             for (let key in data[i]) {
                 console.log(key)
                 if (data[i].hasOwnProperty(key)) {
-                    rowData.push(<TableCell column={key} name={data[i][key]} onClick={this.onClickTest}>{data[i][key]}</TableCell>)
+                    rowData.push(<TableCell column={key} name={data[i][key]} onClick={this.props.onClickHandler}>{data[i][key]}</TableCell>)
                 }
             }
 

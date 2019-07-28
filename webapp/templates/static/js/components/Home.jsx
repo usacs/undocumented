@@ -4,8 +4,9 @@ import  {getTable,getAllTablesForQuery} from '../api/api'
 export default class Home extends Component {
 
    constructor(){
+      super()
       this.state = {
-         tablesToShow:[<DisplayTable table = "A_TblCase" onClickHandler ={this.onClickTest}/>]
+         tablesToShow:[<DisplayTable table = "A_TblCase" onClickHandler ={this.onClickTest}></DisplayTable>]
       }
    }
 
@@ -14,11 +15,18 @@ export default class Home extends Component {
       const colVal = evt.target.getAttribute("name")
       getAllTablesForQuery(col,colVal).then(data=>{
           console.log(data);
+          let newData = []
+
+          
       });
+      
  }
     render() {
        return (
-          <DisplayTable table = "A_TblCase" onClickHandler ={this.onClickTest}/>
+          <div>
+               {this.state.tablesToShow}
+          </div>
+          
        )
     }
 }
