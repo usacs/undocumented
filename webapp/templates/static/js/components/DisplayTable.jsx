@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import  {getTable,getAllTablesForQuery} from '../api/api'
+import { getTable, getAllTablesForQuery } from '../api/api'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -10,42 +10,42 @@ import Paper from '@material-ui/core/Paper';
 /**
  * This component displays a table
  */
-export default class DisplayTable extends Component{
-    constructor(props){
+export default class DisplayTable extends Component {
+    constructor(props) {
         super(props)
-       
+
         this.state = {
-            columnNames : [],
-            rows : [],
-            page:0
+            columnNames: [],
+            rows: [],
+            page: 0
         }
-     
+
     }
     /**
      * On Mount make a request
      */
-    componentDidMount(){
-        getTable(this.state.page,this.props.table).then(data=>{
+    componentDidMount() {
+        getTable(this.state.page, this.props.table).then(data => {
             this.seralizeData(data)
             this.seralizeTable(data)
-    })
-}
-    
-
-    getNextPage(){
-        let page = this.state.page;
-        page +=1
-        this.setState({
-            page:page
         })
-        getTable(this.state.page,this.props.table).then(data=>{
+    }
+
+
+    getNextPage() {
+        let page = this.state.page;
+        page += 1
+        this.setState({
+            page: page
+        })
+        getTable(this.state.page, this.props.table).then(data => {
             console.log("serialzed the data")
             //from now on only grab next data
             this.seralizeData(data)
         })
     }
 
- 
+
     /**
      * Set Table name and col info
      */
@@ -54,20 +54,20 @@ export default class DisplayTable extends Component{
         //Componets for the columns
         let colsComponents = []
 
-        colnames.forEach(item=>{
+        colnames.forEach(item => {
             colsComponents.push(<TableCell>{item}</TableCell>)
         })
         this.setState({
-            columnNames : colsComponents
+            columnNames: colsComponents
         });
     }
     /**
      * 
      * Serialize the data from the flask request
      */
-    seralizeData(data){
+    seralizeData(data) {
         const rows = this.state.rows;
-        for(let i=0;i<data.length;i++){
+        for (let i = 0; i < data.length; i++) {
             let rowData = []
             for (let key in data[i]) {
                 if (data[i].hasOwnProperty(key)) {
@@ -75,35 +75,37 @@ export default class DisplayTable extends Component{
                 }
             }
 
-            rows.push(<TableRow key = { data[i][0]}>{rowData}</TableRow>)
+            rows.push(<TableRow key={data[i][0]}>{rowData}</TableRow>)
             this.setState({
-                rows:rows
+                rows: rows
             })
         }
-        
+
     }
 
     /**
      * Display table info given the page and stuff
      */
-    render(){
-        if(this.state.rows == []){
+    render() {
+        if (this.state.rows == []) {
             return <div> Loading</div>
         }
         return (
+
             <Paper className={this.props.table}>
-            <Table className={this.props.table}>
-              <TableHead>
-                <TableRow>
-                    {this.state.columnNames}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {this.state.rows}
-              </TableBody>
-            </Table>
-          </Paper>
-        )   
+                <h1>{this.props.table}</h1>
+                <Table className={this.props.table}>
+                    <TableHead>
+                        <TableRow>
+                            {this.state.columnNames}
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {this.state.rows}
+                    </TableBody>
+                </Table>
+            </Paper>
+        )
     }
 
 }
