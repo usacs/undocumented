@@ -43,22 +43,11 @@ def new_tables(sql,oldQuery,addition):
         newTable = {}
         newTable["tableName"] = table[0]
         newTable["numberOfMatchingColumns"] = table[1]
-        newTable["columnNames"] = [i['COLUMN_NAME'].upper() for i in table[2]]
-        newTable["tableContent"] = []
 
         #Get all the rows for this table
 
         query = f"SELECT * FROM {table[0]}  WHERE {table[3]}"
         print(query)
-        rows = sql.SelectQuery(query,one=False)
-        rowData = []
-        for row in rows:
-            for value in row.values():
-                if type(value) == str:
-                    value = value.replace(" ","")
-                rowData.append(value)
-            newTable["tableContent"].append(rowData)
-            rowData = []
         newData["tables"].append(newTable)
 
 
