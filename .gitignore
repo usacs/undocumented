@@ -5,3 +5,5 @@ lib/
 __pycache__
 config.py
 webapp/templates/public/bundle.js
+*.pyc
+webapp/templates/src/views.pyc

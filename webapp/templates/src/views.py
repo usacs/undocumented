@@ -12,10 +12,10 @@ blueprint = Blueprint('src',__name__)
 def index():
  return render_template("index.html")
 
- @blueprint.route('/reset',methods=["GET"])
+ @blueprint.route('/reset',methods = ["POST"])
  def reset():
      session["currQuery"] = ""
-     return {"status":200}
+     return jsonify({"status":200})
 
 @blueprint.route('/get-table',methods=["POST"])
 def getTable():
