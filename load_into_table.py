@@ -4,7 +4,7 @@ import sqlalchemy
 import os
 
 def load_into_sql(path):
-    engine = sqlalchemy.create_engine('mysql://root:MPxYZQ8SxpbZ6y@immdb.cejces4w259w.us-east-1.rds.amazonaws.com:3306/data')
+    engine = sqlalchemy.create_engine('mysql://user:pass@host/database')
     for root, dirs, files in os.walk(path, topdown=False):
          for name in files:
             if ".csv" in name:
