@@ -13,3 +13,12 @@ You can load the data in any way you please, but the best way is to use the load
 the `sqlThings/` folder has a file for setting the primary keys. If you run that it will try to set the primary keys.Note: You need to set up a config file in the same direcotry. Look at this for an example  https://github.com/Sail338/undocumented/blob/master/webapp/templates/src/driver/config.py.example.
 
 ## Running the Webapp
+```
+cd `webapp/templates/static #cd into react app
+npm install
+num run-script watch  #adds hot reloading, not there is a bug with caching so every time you reload the browswer you have to do a hard cache reset 
+
+# for the flask app
+cd webApp
+python run.py
+```
